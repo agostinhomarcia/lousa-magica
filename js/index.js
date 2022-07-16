@@ -1,4 +1,3 @@
-
 let canvas = document.querySelector('main .drawingBoard');
 let ctxCanvas = canvas.getContext('2d');
 let currentColor = 'black';
@@ -20,7 +19,7 @@ document.querySelectorAll('.colorPalette .color').forEach((color) => {
 canvas.addEventListener('mousedown', mouseDownEvent);
 canvas.addEventListener('mousemove', mouseMoveEvent);
 canvas.addEventListener('mouseup', mouseUpEvent);
-canvas.addEventListener('touchatart', touchStart)
+
 
 document.querySelector('.buttons .btnCleanAll').addEventListener('click', cleanDraw);
 
@@ -31,11 +30,11 @@ function switchCursor(e) {
     let cursor = e.target.getAttribute('data-cursor');
     
     if ( cursor == 'eraser' ) {
-        e.target.src = '../assets/images/crosshair.png';
+        e.target.src = '../img/crosshair.png';
         e.target.setAttribute('data-cursor', 'crosshair');
         
     } else {
-        e.target.src = '../assets/images/eraser.png';
+        e.target.src = '../img/eraser.png';
         e.target.setAttribute('data-cursor', 'eraser')
     }
 }
@@ -59,6 +58,7 @@ function mouseDownEvent(e) {
     canDraw = true;
     mouseX = e.pageX - canvas.offsetLeft;
     mouseY = e.pageY - canvas.offsetTop;
+
 }  
 
 function mouseMoveEvent(e) {
@@ -66,6 +66,7 @@ function mouseMoveEvent(e) {
         draw(e.pageX, e.pageY);
     }
 }
+
 
 function  touchStart(e) {
     if( canDraw ) {
